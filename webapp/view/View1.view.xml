@@ -1,0 +1,90 @@
+<mvc:View controllerName="ODM.ODataMethods.controller.View1" xmlns:table="sap.ui.table" xmlns:core="sap.ui.core"
+ xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m">
+	<!-- <Shell id="shell"> -->
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}">
+					<content>
+                    <Table items="{odata>/EmployeeSet}" mode="MultiSelect" 
+                     growing="true" growingDirection="Downwards" growingScrollToLoad="false"
+                     growingThreshold="5" growingTriggerText="Load Some More"
+                     alternateRowColors="true" id="mTable">
+                     
+                   	<headerToolbar>
+					<OverflowToolbar>
+						<Title id="title" text="EMPLOYEE DETAILS"/>
+						<ToolbarSpacer/>
+                        
+					<Button icon="sap-icon://add" text="AddEmployee" id="idCreate" press="popUp"></Button>
+						  <VBox alignItems="End" alignContent="SpaceBetween">
+                    
+                    
+                            <!-- tokenUpdate="tUpdate" -->
+                        <!-- <MultiInput
+                            id="multiInput1"
+                             tokenChange="updateTable"
+                            maxTokens="4" autocomplete="true" placeholder="Search with Designation" 
+                            suggestionItems="{
+                                path: 'odata>/EmployeeSet',
+                                sorter: { path: 'Employeedesignation' }
+                            }"
+                            showValueHelp="false">
+                            <core:Item key="{odata>Employeeid}" text="{odata>Employeedesignation}" />
+                        </MultiInput> -->
+                        <Input id="multiInput1" submit="updateTable" filterSuggests="true" suggest="{odata>Employeedesignation}"></Input>
+                    </VBox>
+						
+					</OverflowToolbar>
+                       </headerToolbar>
+				
+                     
+                             <columns>
+                                <Column >
+                              
+                                    <Text text="EmployeeId"></Text>
+                                </Column>
+                                 <Column >
+                                 
+                                    <Text text="EmployeeName"></Text>
+                                </Column>
+                                 <Column >
+                              
+                                    <Text text="EmployeeDesignation"></Text>
+                                </Column>
+                                <Column>
+									<Label text="Action"></Label>
+								</Column>
+                             </columns>
+                             <items>
+                        
+                             <ColumnListItem >
+                             <cells>
+                             <Text text="{odata>Employeeid}"></Text>
+                             <Text text="{odata>Employeename}"></Text>
+                              <Text text="{odata>Employeedesignation}"></Text>
+                              <HBox>
+											<Button icon="sap-icon://edit" id="idUpdate" press="onEdit"/>
+											<Label/>
+											<Button icon="sap-icon://delete" id="idDelete" press="onDelete" />
+										</HBox>
+                             </cells></ColumnListItem>
+                             </items>
+                             </Table>
+                    
+                    </content>
+                            <footer>
+                            <OverflowToolbar id="otbFooter">
+				<ToolbarSpacer/>
+                            	<HBox>
+											<!-- <Button icon="sap-icon://edit" id="idUpdate" press="onEdit"/>
+											<Label/>
+											<Button icon="sap-icon://delete" id="idDelete" press="onDelete" /> -->
+										</HBox>
+                                        </OverflowToolbar>
+				
+                            </footer>
+				</Page>
+			</pages>
+		</App>
+	<!-- </Shell> -->
+</mvc:View>

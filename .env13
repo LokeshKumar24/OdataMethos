@@ -1,0 +1,1 @@
+destinations=[{"name":"S4HANA","url":"http://S4HANA.dest","proxyHost":"http://127.0.0.1","proxyPort":"8887"}]
